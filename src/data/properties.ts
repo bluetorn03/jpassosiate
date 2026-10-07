@@ -85,7 +85,7 @@ export const PROPERTIES: Property[] = [
 
 export const getProperty = (slug: string) => PROPERTIES.find((p) => p.slug === slug);
 
-export interface Filters { type?: PropertyType; transaction?: Transaction; location?: LocationSlug; minArea?: number; maxArea?: number }
+export interface Filters { type?: PropertyType | undefined; transaction?: Transaction | undefined; location?: LocationSlug | undefined; minArea?: number | undefined; maxArea?: number | undefined }
 
 export function filterProperties(f: Filters) {
   return PROPERTIES.filter((p) =>

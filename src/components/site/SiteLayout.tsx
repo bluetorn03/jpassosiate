@@ -8,7 +8,7 @@ import { PROPERTY_TYPES } from "@/data/properties";
 const NAV = [
   { to: "/properties", label: "Properties" },
   { to: "/services", label: "Services" },
-  { to: "/locations/khushkhera", label: "Locations" },
+  { to: "/services", label: "Locations", hash: "" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ] as const;
