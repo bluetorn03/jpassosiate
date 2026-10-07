@@ -9,11 +9,8 @@ export function SearchBar({ initial = {} }: { initial?: Filters }) {
     e.preventDefault();
     const d = Object.fromEntries(new FormData(e.currentTarget)) as Record<string, string>;
     const search: Record<string, string | number> = {};
-    if (d.type) search.type = d.type;
-    if (d.transaction) search.transaction = d.transaction;
-    if (d.location) search.location = d.location;
-    if (d.minArea) search.minArea = Number(d.minArea);
-    if (d.maxArea) search.maxArea = Number(d.maxArea);
+    for (const k of ["type", "transaction", "location"]) if (d[k]) search[k] = d[k]!;
+    for (const k of ["minArea", "maxArea"]) if (d[k]) search[k] = Number(d[k]);
     navigate({ to: "/properties", search: search as never });
   }
   const label = "mb-1.5 block font-mono text-[10px] uppercase tracking-wider text-muted-foreground";
